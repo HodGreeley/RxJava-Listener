@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Observables",
+      "request": "launch",
+      "mainClass": "com.couchbase.rx.Observables",
+      "projectName": "RxJava-Listener"
+    }
+  ]
+}

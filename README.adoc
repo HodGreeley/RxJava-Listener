@@ -1,0 +1,4 @@
+= RxJava 2 Listener
+:toc:
+
+Experimenting with writing an Rx Java wrapper for a typical Java callback.
