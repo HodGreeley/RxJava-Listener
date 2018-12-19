@@ -11,6 +11,8 @@ public class FunctionSource<T> extends BasicSource<T> {
   private int count;
 
   public static <U> Observable<U> fromFunction(Function<Integer, ? extends U> function, int count) {
+    System.out.println("Creating source on thread " + Thread.currentThread().getName());
+
     FunctionSource<U> source = new FunctionSource<>();
 
     source.function = function;
