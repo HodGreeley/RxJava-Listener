@@ -4,7 +4,7 @@ plugins {
     id 'application'
 }
 
-mainClassName = 'Observables'
+mainClassName = 'com.couchbase.rx.Observables'
 
 dependencies {
     compile 'com.google.guava:guava:23.0'
