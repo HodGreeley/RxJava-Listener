@@ -2,3 +2,5 @@
 :toc:
 
 Experimenting with writing an Rx Java wrapper for a typical Java callback.
+
+Use `gradle run` from the command line or import with an IDE or VS Code.
