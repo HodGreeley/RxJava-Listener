@@ -84,7 +84,8 @@ public class Observables {
     // */
 
     ///*
-    SuppliedSource<Object> source = new SuppliedSource<>(Object::new);
+    //SuppliedSource<Object> source = new SuppliedSource<>(Object::new);
+    UnboundSource<Object> source = new UnboundSource<>(Object::new);
 
     ObservableOnSubscribe<Object> handler = emitter -> {
       System.out.println("Create on thread - " + Thread.currentThread().getName());
@@ -97,13 +98,14 @@ public class Observables {
       });
 
       emitter.setCancellable(() -> source.setOnItemListener(null));
-      source.start(emitter);
+      //source.start(emitter);
+      source.start();
     };
 
     d =
     Observable.create(handler)
-      .subscribeOn(Schedulers.io())
-      //.observeOn(Schedulers.computation())
+      //.subscribeOn(Schedulers.io())
+      .observeOn(Schedulers.computation())
       .subscribe(ComputeFunction::compute, Throwable::printStackTrace,
         () -> System.out.println("Done"), t -> System.out.println("onSubscribe on thread " + Thread.currentThread().getName()));
       //.subscribeWith(observer);
