@@ -117,6 +117,7 @@ public class Experiments {
     //observable = FunctionSource.fromFunction(nn -> new Object(), 200);
     observable = Observable.create(handler); //.share();
 
+    // tag::thread-shifting[]
     disposable =
     observable
       //.subscribeOn(Schedulers.io())
@@ -124,6 +125,7 @@ public class Experiments {
       .subscribe(ComputeFunction::compute, Throwable::printStackTrace,
         () -> System.out.println("Done"), t -> System.out.println("onSubscribe on thread " + Thread.currentThread().getName()));
       //.subscribeWith(observer);
+    // end::thread-shifting[]
 
     // */
 
